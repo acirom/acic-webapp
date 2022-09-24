@@ -9,10 +9,6 @@ app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/images', express.static(__dirname + '/public/images'));
 
-app.get('/', (req, res) => {
-  res.send('Hello from the server!');
-});
-
 app.get('/health', (req, res) => {
   res.sendStatus(200);
 });
