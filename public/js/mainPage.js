@@ -33,7 +33,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             //url: "http://localhost:3200/book",
-            url: "http://node-express-acic.cnr.tap.tanzu.vxlab.local/book",
+            url: "http://acic-api-book.cnr.tap.tanzu.vxlab.local/book",
             dataType : "text",
             data : data,
             cache: false,
