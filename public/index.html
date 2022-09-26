@@ -5,98 +5,101 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>ACIC Bookshelf</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
-        <link href="css/bootstrap-icon.css" rel="stylesheet" />
+        <!-- <link href="css/bootstrap-icon.css" rel="stylesheet" /> -->
         <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" /> -->
         <!-- Google fonts-->
         <link href="css/fonts.css" rel="stylesheet" />
         <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" /> -->
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="js/mainPage.js"></script>
+
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <a class="navbar-brand" href="#!">ACIC Bookshelf</a>
                 <!-- <a class="btn btn-primary" href="#signup">Sign Up</a> -->
             </div>
         </nav>
+
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="mb-5">My Book shelf!</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
-                                <div class="row">
-                                    <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+
+                            <!-- <h2 id="addBook">Add a new Book!</h2> -->
+                            <div style="padding: 10px;">
+                                <button id="addBook" type="button" class="btn btn-primary btn-lg">Add a new Book!</button>                                    
+                            </div>
+
+                            <div id="insertFormArea" style="display: none;">
+                                <form id="frmSubmit">
+                                    <div class="form-group" style="padding-top: 10px;">
+                                        <label for="formGroup_BookId" style="text-align:left; float:left">Book ID</label>
+                                        <input type="text" class="form-control" name="book_id" id="formGroup_BookId" value="BID334" placeholder="Book id number">
                                     </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                                </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    <div class="form-group" style="padding-top: 10px;">
+                                        <label for="formGroup_BookTitle" style="text-align:left; float:left">Title</label>
+                                        <input type="text" class="form-control" name="title" id="formGroup_BookTitle" value="Epic Reads Book Club Sampler" placeholder="Title">
                                     </div>
+                                    <div class="form-group" style="padding-top: 10px;">
+                                        <label for="formGroup_BookAuthor" style="text-align:left; float:left">Author</label>
+                                        <input type="text" class="form-control" name="author" id="formGroup_BookAuthor" value="Megan McCafferty" placeholder="Author">
+                                    </div>
+                                    <div class="form-group" style="padding-top: 10px;">
+                                        <label for="formGroup_BookPublisher" style="text-align:left; float:left">Publisher</label>
+                                        <input type="text" class="form-control" name="publisher" id="formGroup_BookPublisher" value="Goodreads Author" placeholder="Publisher">
+                                    </div>
+                                    <h1 class="mb-3"> </h1>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                      
+                                </form>
+                                <div style="padding-top: 10px;">
+                                    <button id="cancelButton" class="btn btn-secondary" >Cancel</button>                                    
                                 </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
+
+                            </div>
+                            <div id="insertReturnMessageBox" style="display: none; padding-top: 120px;;">
+                                <h3 id="insertReturnMessageTitle"></h3>
+                                <h5 id="insertReturnMessage">INFO</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+
         <!-- Icons Grid-->
         <section class="features-icons bg-light text-center">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                        <!-- <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <h3>Fully Responsive</h3>
                             <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-4">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
                             <h3>Bootstrap 5 Ready</h3>
                             <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                        <!-- <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                             <h3>Easy to Use</h3>
                             <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -144,7 +147,7 @@
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="js/sb-forms-0.4.1"></script>
+        <!-- <script src="js/sb-forms-0.4.1"></script> -->
         <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
 
     </body>
